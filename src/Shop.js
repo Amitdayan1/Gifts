@@ -1,52 +1,14 @@
 import React from "react";
 
-function SignIn () {
+function Shop () {
     return (
 
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="col">
-                    <div className="card">
-                        <img src="..." className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card">
-                        <img src="..." className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card">
-                        <img src="..." className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content.</p>
-                            </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card">
-                        <img src="..." className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                    </div>
-                </div>
-            </div>
+      <div>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
+      </div>
 
 
     )
 }
-export default SignIn;
+export default Shop;

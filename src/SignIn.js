@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
+import './App.css'
 
 class SignIn extends React.Component{
     state = {
@@ -21,37 +22,45 @@ class SignIn extends React.Component{
         }
     render() {
         return (
-            <div>
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-        <aside className="col-sm-4">
-            <p>Pleas enter your details</p>
-            <div className="card">
-                <article className="card-body">
-                    <Link to={"/SignUp"}><a href="" className="float-right btn btn-outline-primary">Sign up</a></Link>
-                    <h4 className="card-title mb-4 mt-1">Sign in</h4>
-                    <form>
-                        <div className="form-group">
-                            <label>Your email</label>
-                            <input name="" className="form-control" placeholder="Email" type="email"/>
-                         </div>
-                        <div className="form-group">
-                            <a className="float-right" href="#">Forgot?</a>
-                            <label>Your password</label>
-                            <input className="form-control" placeholder="*******" type="password" maxLength={8}/>
-                        </div>
-                        <div className="form-group">
-                            <div className="checkbox">
-                                <label> <input type="checkbox"/> Save password </label>
+            <div className="SignInAll">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
+                <div className="wrapper body-inverse">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-5">
+                                <h3>Sign In to your account</h3>
+                                <p className="text-muted">
+                                    Please fill out the form below to login to your account.
+                                </p>
+                                <div className="form-white">
+                                    <form role="form">
+                                        <div className="form-group">
+                                            <label htmlFor="email">Email address</label>
+                                            <input type="email" className="form-control" id="email"
+                                                   placeholder="Enter email" />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="password">Password</label>
+                                            <input type="password" className="form-control" id="password"
+                                                   placeholder="Password" maxLength={8}/>
+                                        </div>
+                                        <div className="checkbox">
+                                            <label>
+                                                <input type="checkbox"/> Remember me
+                                            </label>
+                                        </div>
+                                        <button type="submit" className="btn btn-outline-primary">Submit
+                                        </button>
+                                    </form>
+                                    <Link to={"/PasswordReset"}><p><a>Lost your password?</a></p></Link>
+                                </div>
                             </div>
                         </div>
-                        <div className="form-group">
-                            <button type="submit" className="btn btn-primary btn-block"> Login</button>
-                        </div>
-                    </form>
-                </article>
+                    </div>
+                </div>
             </div>
-        </aside>
-            </div>
+
     )
 }}
 export default SignIn;

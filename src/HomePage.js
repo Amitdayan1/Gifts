@@ -14,12 +14,12 @@ class HomePage extends React.Component{
             phone: "0502433259",
             imgLink:"images/myWay.PNG"
         }, {
-            name: "Queen Of Sheba",
-            price: 6500,
+            name: "Orient Jerusalem",
+            price: 6700,
             category: "Vacation",
-            region: "South",
-            phone: "086985337",
-            imgLink:"images/sheba.PNG"
+            region: "Central",
+            phone: "023397333",
+            imgLink:"images/orient.PNG"
 
         }, {
             name: "Hotel Rimonim",
@@ -36,12 +36,12 @@ class HomePage extends React.Component{
             phone: "086932447",
             imgLink:"images/clubHotel.PNG"
         }, {
-            name: "Orient Jerusalem",
-            price: 6700,
+            name: "Queen Of Sheba",
+            price: 6500,
             category: "Vacation",
-            region: "Central",
-            phone: "023397333",
-            imgLink:"images/orient.PNG"
+            region: "South",
+            phone: "086985337",
+            imgLink:"images/sheba.PNG"
         }, {
             name: "Milos Dead Sea",
             price: 1000,
@@ -140,12 +140,11 @@ class HomePage extends React.Component{
 
     render()
     {return(
-        <div className="All">
+        <div className="HomeAll">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-                  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-                  crossOrigin="anonymous"/>
+                  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
         <div className="Title">
-        Welcome To Best Gift
+            <h2>Welcome To Best Gift</h2>
     </div>
         <div className="Sort">
             Category:

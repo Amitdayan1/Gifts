@@ -4,12 +4,16 @@ import "./About.css"
 function About () {
     return (
         <div>
+        <div className="About">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
         <div className="about-section">
-            <h1>About Us Page</h1>
-            <p>Best Gift is </p>
+            <h1>About Us ...</h1>
+            <p>Best Gift is ... </p>
             <p></p>
         </div>
-    <h2 style={{textAlign:"center"}}>Our Team</h2>
+        </div>
+    <h2 className="OurTitle">Our Team</h2>
     <div className="row">
         <div className="column">
             <div className="card">
