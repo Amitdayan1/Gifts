@@ -17,8 +17,12 @@ class SignUp extends React.Component{
                     <div className="form-white">
                         <form role="form">
                             <div className="form-group">
-                                <label form="name">Full Name</label>
-                                <input type="text" className="form-control" id="name" placeholder="Your name"/>
+                                <label form="name">First Name</label>
+                                <input type="text" className="form-control" id="FirstName" placeholder="First name"/>
+                            </div>
+                            <div className="form-group">
+                                <label form="name">Last Name</label>
+                                <input type="text" className="form-control" id="LastName" placeholder="Last name"/>
                             </div>
                             <div className="form-group">
                                 <label form="username">Username</label>

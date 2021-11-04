@@ -10,18 +10,21 @@ function About () {
         <div className="about-section">
             <h1>About Us ...</h1>
             <p>Best Gift is ... </p>
+            <p>Best Gift is  </p>
+            <p>Best Gift is ... </p>
+            <p>Best Gift is ... </p>
             <p></p>
         </div>
         </div>
     <h2 className="OurTitle">Our Team</h2>
-    <div className="row">
+    <div className="row row-cols-1 row-cols-md-2">
         <div className="column">
-            <div className="card">
+            <div className="card w-75 h-100">
                 <img src="images/ceoPhoto.PNG" className="photos" />
                     <div className="container">
                         <h2>Amit Dayan</h2>
                         <p className="title">CEO & Founder</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>Some text that describes me...</p>
                         <p>Amitd833@gmail.com</p>
                         <p>
                             <button className="button">Contact</button>
@@ -30,12 +33,12 @@ function About () {
             </div>
         </div>
             <div className="column">
-                <div className="card">
+                <div className="card w-75 h-100">
                     <img src="images/artDirectorPhoto.PNG" className="photos" />
                         <div className="container">
                             <h2>Adi Dayan</h2>
                             <p className="title">Art Director</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            <p>Some text that describes me...</p>
                             <p>Adidayan17@gmail.com</p>
                             <p>
                                 <button className="button">Contact</button>
@@ -43,8 +46,8 @@ function About () {
                         </div>
                    </div>
             </div>
-    </div>
         </div>
+    </div>
  )
 }
 export default About;

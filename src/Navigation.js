@@ -18,7 +18,7 @@ class Navigation extends React.Component{
                 <ul className="nav justify-content-center">
                     <li className="nav-item"><NavLink to={"/About"} activeClassName="links">About us</NavLink></li>
                     <li className="nav-item"><NavLink to={"/SignIn"} activeClassName="links">Sign in</NavLink></li>
-                    <li className="nav-item"><NavLink to={"/SignUp"} activeClassName="nav-link links">Sign Up</NavLink></li>
+                    <li className="nav-item"><NavLink to={"/SignUp"} activeClassName="links">Sign Up</NavLink></li>
                 </ul>
         </div>
         </navbar>

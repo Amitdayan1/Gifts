@@ -16,14 +16,11 @@
    font-family: Ubuntu ,sans-serif;
    text-decoration: none;
 }
-.HomeAll{
-   text-align: center;
-   background: rgba(255,176,124,0.66);
-}
 .Title{
    font-family: Ubuntu, sans-serif;
    font-size: 3.5rem;
    font-weight: bold;
+   text-align: center;
 }
 .Sort{
    font-family: Ubuntu, sans-serif;
@@ -31,10 +28,18 @@
    font-weight: bold;
 }
 .SignInAll{
-   background: rgba(255,176,124,0.66);
    font-family: Ubuntu, sans-serif;
 }
 .SignUpAll{
-   background: rgba(255,176,124,0.66);
+
    font-family: Ubuntu, sans-serif;
+}
+.card-img-top{
+   border-radius: 20%;
+   height: 120px;
+}
+.footer {
+   background-color: #ff4c68;
+   padding: 50px;
+   text-align: center;
 }
