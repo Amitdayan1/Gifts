@@ -10,6 +10,7 @@ import HomePage from "./HomePage";
 import Navigation from "./Navigation";
 import SignUp from "./SignUp";
 import PasswordReset from "./PasswordReset";
+import FooterBar from "./FooterBar";
 
 class App extends React.Component {
     render(){
@@ -26,6 +27,7 @@ class App extends React.Component {
                     <Route path={"/SignUp"} component={SignUp}/>
                     <Route path={"/PasswordReset"} component={PasswordReset}/>
                 </BrowserRouter>
+                <FooterBar/>
             </div>
         );}
 }

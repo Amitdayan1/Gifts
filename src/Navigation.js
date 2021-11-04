@@ -1,6 +1,7 @@
 import * as React from "react";
 import {BrowserRouter, Link,NavLink} from "react-router-dom";
 import './App.css'
+import FooterBar from "./FooterBar";
 
 class Navigation extends React.Component{
     render()
