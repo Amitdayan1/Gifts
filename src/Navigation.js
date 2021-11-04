@@ -1,7 +1,7 @@
 import * as React from "react";
 import {BrowserRouter, Link,NavLink} from "react-router-dom";
 import './App.css'
-import FooterBar from "./FooterBar";
+
 
 class Navigation extends React.Component{
     render()
@@ -17,7 +17,7 @@ class Navigation extends React.Component{
                         <span className="navbar-brand barTitle">Best Gift</span>
                     </a></NavLink>
                 <ul className="nav justify-content-center">
-                    <li className="nav-item"><NavLink to={"/About"} activeClassName="links">About us</NavLink></li>
+                    <li className="nav-item"><NavLink to={"/About"} activeClassName="links">About Us</NavLink></li>
                     <li className="nav-item"><NavLink to={"/SignIn"} activeClassName="links">Sign in</NavLink></li>
                     <li className="nav-item"><NavLink to={"/SignUp"} activeClassName="links">Sign Up</NavLink></li>
                 </ul>
