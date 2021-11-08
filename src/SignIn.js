@@ -1,17 +1,21 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
 import './App.css'
+import axios from "axios";
+import Cookies from "universal-cookie/lib";
 
 class SignIn extends React.Component{
     state = {
-        userName: "",
-        password: ""
+        username: "",
+        password: "",
+        showError: false,
+        token:""
 
 }
     userNameChange=(event)=> {
         let value = event.target.value;
         this.setState({
-            userName: value
+            username: value
         })
     }
         passwordChange = (event) => {
@@ -20,6 +24,35 @@ class SignIn extends React.Component{
                 password: value
             })
         }
+        logIn=()=>{
+        axios.get("http://127.0.0.1:8989/sign-in",{
+            params:{
+                username:this.state.username,
+                password:this.state.password
+            }
+        }).then((response)=>{
+            if(response.data && response.data.length>0) {
+                const cookies = new Cookies();
+                cookies.set("logged_in", "True");
+                window.location.reload();
+                axios.get("http://127.0.0.1:8989/get-token", {
+                    params: {
+                        username: this.state.username,
+                        password: this.state.password
+                    }
+                }).then((response) => {
+                    if (response.data.length > 0) {
+                        const cookies = new Cookies();
+                        cookies.set("token", response.data);
+                        window.location.reload();
+                    } })}
+            else {
+                        this.setState({
+                            showError: true
+                        })
+                    }
+                })
+            }
     render() {
         return (
             <div className="SignInAll">
@@ -36,21 +69,21 @@ class SignIn extends React.Component{
                                 <div className="form-white">
                                     <form role="form">
                                         <div className="form-group">
-                                            <label htmlFor="email">Email address</label>
-                                            <input type="email" className="form-control" id="email"
-                                                   placeholder="Enter email" />
+                                            <label> Username</label>
+                                            <input type="text" className="form-control" id="username"
+                                                   placeholder="Enter Username" value={this.state.username} onChange={this.userNameChange} />
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="password">Password</label>
                                             <input type="password" className="form-control" id="password"
-                                                   placeholder="Password" maxLength={8}/>
+                                                   placeholder="Password" maxLength={8} value={this.state.password} onChange={this.passwordChange}/>
                                         </div>
                                         <div className="checkbox">
                                             <label>
                                                 <input type="checkbox"/> Remember me
                                             </label>
                                         </div>
-                                        <button type="submit" className="btn btn-outline-primary">Submit
+                                        <button type="submit" className="btn btn-outline-primary" onClick={this.logIn}>Sign in
                                         </button>
                                     </form>
                                     <Link to={"/PasswordReset"}><p><a>Lost your password?</a></p></Link>
@@ -59,6 +92,9 @@ class SignIn extends React.Component{
                         </div>
                     </div>
                 </div>
+                {this.state.showError &&
+                <div> Wrong Password/Username Try Again</div>
+                }
             </div>
 
     )
