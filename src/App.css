@@ -11,6 +11,16 @@
    font-weight: bold;
    padding-left: 10px;
 }
+.btn {
+   background-color: #ffffff;
+   border: none;
+   padding: 12px 16px;
+   font-size: 16px;
+}
+.btn:hover {
+   background-color: #ffffff;
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 .links{
    font-size: 1.2rem;
    font-family: Ubuntu ,sans-serif;
@@ -40,12 +50,9 @@
 }
 .footer {
    padding: 30px;
-   margin: auto;
    background-color: #ff4c68;
    color:#fff;
-   left: 0;
-   bottom: 0;
-   width: 100%;
+
 }
 .footerTitle{
    font-family: Ubuntu, sans-serif;

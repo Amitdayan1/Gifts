@@ -12,7 +12,6 @@ class SignUp extends React.Component{
         emailAddress:"",
         password1:"",
         password2:"",
-        acceptToTerm:false,
         success:false
     }
     firstNameChange=(event)=>{
@@ -51,17 +50,20 @@ class SignUp extends React.Component{
             password2:value
         })
     }
-    acceptConfirm=(event)=>{
-        let value=event.target.value;
-        this.setState({
-            acceptToTerm:true
-        })
-    }
-    accountCreated=()=>{
-        if(this.state.password1==this.state.password2 &&this.state.acceptToTerm){
+    fieldsCheck=()=>{
+        if(this.state.password1.length>0 && this.state.password1==this.state.password2 &&
+            this.state.firstName.length>0&&this.state.lastName.length>0&&
+            this.state.username.length>0&&this.state.emailAddress.length>0)
             this.setState({
                 success:true
             })
+        else {
+            alert("One or more details are wrong")
+        }
+    }
+    accountCreated=()=>{
+        this.fieldsCheck();
+        if(this.state.success){
         }
         axios.get("http://127.0.0.1:8989/sign-up",{
             params: {
@@ -76,7 +78,7 @@ class SignUp extends React.Component{
                 alert("user created")}
         }
             )}
-c
+
     render() {
         return (
             <div className="SignUpAll">
@@ -117,12 +119,10 @@ c
                                     </div>
                                 </div>
                             </div>
-                            <div className="checkbox">
-                                <label>
-                                    <input type="checkbox" value={this.state.acceptToTerm} onChange={this.acceptConfirm}/> I agree to the <a>Terms of Service</a> and<a>Privacy Policy</a>
-                                </label>
-                            </div>
-                            <button type="submit" className="btn btn-outline-primary" onClick={this.accountCreated}>Create an account</button>
+                            <div>
+                                <br></br>
+                            <button className="btn btn-outline-primary" onClick={this.accountCreated}>Create an account</button>
+                        </div>
                         </form>
                     </div>
                 </div>

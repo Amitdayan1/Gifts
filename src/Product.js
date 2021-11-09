@@ -4,7 +4,7 @@ import './App.css';
 function Product (props) {
     return (
             <div className="col">
-                <div className="card h-80 w-52">
+                <div className="card h-80 w-51">
                     <img src={props.data.imgLink} className="card-img-top" alt="...." />
                     <div className="card-body">
                         <h5 className="card-title">{props.data.name}</h5>
