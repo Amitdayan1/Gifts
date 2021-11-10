@@ -192,8 +192,6 @@ class HomePage extends React.Component{
             }
         </div>
         <div style={{textAlign:"right",fontSize:"8px"}} >(The prices are shown in {this.state.currentCurrency} currency)</div>
-
-
     </div>
 
     ) }

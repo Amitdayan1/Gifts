@@ -17,12 +17,10 @@ class Cart extends React.Component {
         }
     }).then(response=>{
             let tempList=response.data;
-            console.log(tempList)
             this.setState({
             cartList:tempList
             })
     })}
-
 
     render() {
         return (
