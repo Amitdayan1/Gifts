@@ -9,10 +9,10 @@ function About () {
                   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
         <div className="about-section">
             <h1>About Us ...</h1>
-            <p>Best Gift is ... </p>
-            <p>Best Gift is  </p>
-            <p>Best Gift is ... </p>
-            <p>Best Gift is ... </p>
+            <p>Best Gift the best way to give gift cards today </p>
+            <p>We believe in customer service, reliability and customized price</p>
+            <p>At our site you can purchase gift cards for family ,friends and the important people in your life and in a simple way you can give them the gift via email.</p>
+            <p>Yours the Best Gift team</p>
             <p></p>
         </div>
         </div>
