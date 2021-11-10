@@ -21,6 +21,7 @@ class Navigation extends React.Component{
         const cookies = new Cookies();
         cookies.remove("logged_in");
         cookies.remove("token");
+        cookies.remove("uniqId");
         this.setState({
             loggedIn: cookies.get("logged_in")
         })

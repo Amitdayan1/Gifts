@@ -21,7 +21,6 @@ function Product (props) {
             {!props.data.selected &&
             <button className="btn" onClick={()=> {
                 const cookies = new Cookies();
-                cookies.set("inCart",true);
                 let token=cookies.get("token");
                 cookies.set("product",props.data.uniqId);
                 axios.get("http://127.0.0.1:8989/set-user-cart",{

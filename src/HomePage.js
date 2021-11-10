@@ -183,7 +183,7 @@ class HomePage extends React.Component{
             <div id="Search" >Search By Name: <input id="searchInput" value={this.state.nameFilter} onChange={this.inputChange} placeholder={"Search..."}/></div>
 
         </div>
-            <div className="row row-cols-1 row-cols-md-4 g-4">
+            <div className="row row-cols-2 row-cols-md-5 g-4">
             {
                 this.filter().map(product => {
                     return (

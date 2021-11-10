@@ -11,7 +11,7 @@
    font-weight: bold;
    padding-left: 10px;
 }
-.btn {
+.btn{
    background-color: #ffffff;
    border: none;
    padding: 12px 16px;
@@ -29,7 +29,6 @@
 .Title{
    font-family: Ubuntu, sans-serif;
    font-size: 3.5rem;
-   font-weight: bold;
    text-align: center;
 }
 .Sort{
