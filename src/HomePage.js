@@ -25,12 +25,12 @@ class HomePage extends React.Component{
     }
 
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8989/get-products`)
+        axios.get(`http://127.0.0.1:8988/get-products`)
             .then(response => {
                 const products = response.data;
                 this.setState({products:products});
             })
-        axios.get('http://127.0.0.1:8989/access-key')
+        axios.get('http://127.0.0.1:8988/access-key')
             .then(response=>{
                 const accessKey=response.data;
                 this.setState({accessKey:accessKey})
@@ -40,7 +40,7 @@ class HomePage extends React.Component{
         {this.setState({
             token:tempToken
         })}
-        axios.get('http://127.0.0.1:8989/get-user',{
+        axios.get('http://127.0.0.1:8988/get-user',{
             params:{
                 token:tempToken
             }

@@ -12,7 +12,7 @@ class Cart extends React.Component {
     componentDidMount() {
         const cookies = new Cookies();
         let token = cookies.get("token");
-        axios.get("http://127.0.0.1:8989/get-user-cart", {
+        axios.get("http://127.0.0.1:8988/get-user-cart", {
             params: {
                 token: token
             }
@@ -22,7 +22,7 @@ class Cart extends React.Component {
                 cartList: tempList
             })
         })
-        axios.get("http://127.0.0.1:8989/get-user", {
+        axios.get("http://127.0.0.1:8988/get-user", {
             params: {
                 token: token
             }

@@ -26,20 +26,21 @@ class SignIn extends React.Component{
             })
         }
         logIn=()=>{
-        axios.get("http://127.0.0.1:8989/sign-in",{
+        axios.get("http://127.0.0.1:8988/sign-in",{
             params:{
                 username:this.state.username,
                 password:this.state.password
             }
         }).then((response)=>{
             if(response.data.length>0) {
+
                 const cookies = new Cookies();
                 cookies.set("logged_in", "True");
                 cookies.set("token", response.data);
                 this.setState({
                     loggedIn:true
                 })
-                window.location.reload();
+                console.log(response.data);
                 }
             else {
                 this.setState({

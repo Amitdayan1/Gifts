@@ -11,8 +11,21 @@ import Navigation from "./Navigation";
 import SignUp from "./SignUp";
 import PasswordReset from "./PasswordReset";
 import FooterBar from "./FooterBar";
+import Cookies from "universal-cookie/lib";
 
 class App extends React.Component {
+    state={
+        cookies:""
+    }
+    componentDidMount() {
+        let cookies=new Cookies();
+        cookies.getAll();
+        this.setState({
+            cookies:cookies
+        })
+    }
+
+
     render(){
         return (
             <div>

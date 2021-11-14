@@ -65,7 +65,7 @@ class SignUp extends React.Component{
         this.fieldsCheck();
         if(this.state.success){
         }
-        axios.get("http://127.0.0.1:8989/sign-up",{
+        axios.get("http://127.0.0.1:8988/sign-up",{
             params: {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
