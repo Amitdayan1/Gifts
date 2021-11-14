@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Link} from "react-router-dom";
+import {Link,NavLink,Redirect } from "react-router-dom";
 import './App.css'
 import axios from "axios";
 import Cookies from "universal-cookie/lib";
@@ -12,8 +12,6 @@ class SignIn extends React.Component{
         token:"",
         showError: false,
         loggedIn:false
-
-
 }
     userNameChange=(event)=> {
         let value = event.target.value;
@@ -34,31 +32,32 @@ class SignIn extends React.Component{
                 password:this.state.password
             }
         }).then((response)=>{
-            if(response.data && response.data.length>0) {
+            if(response.data.length>0) {
                 const cookies = new Cookies();
                 cookies.set("logged_in", "True");
                 cookies.set("token", response.data);
                 this.setState({
                     loggedIn:true
                 })
+                window.location.reload();
                 }
             else {
-                        this.setState({
-                            showError: true
+                this.setState({
+                    showError: true
                         })
                     }
                 })
             }
 
     render() {
-        return (
-
-
+            const {loggedIn}=this.state
+                if(loggedIn)
+                return(<Redirect to={"/HomePage"}/>)
+           return(
         <div className="SignInAll">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
                   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
                   crossOrigin="anonymous"/>
-            {!this.state.loggedIn &&
             <div className="wrapper body-inverse">
                 <div className="container">
                     <div className="row">
@@ -68,7 +67,6 @@ class SignIn extends React.Component{
                                 Please fill out the form below to login to your account.
                             </p>
                             <div className="form-white">
-                                <form role="form">
                                     <div className="form-group">
                                         <label> Username</label>
                                         <input type="text" className="form-control" id="username"
@@ -81,19 +79,17 @@ class SignIn extends React.Component{
                                                placeholder="Password" maxLength={8} value={this.state.password}
                                                onChange={this.passwordChange}/>
                                     </div>
-                                    <button className="btn btn-outline-primary" onClick={this.logIn}>Sign in</button>
-                                </form>
+                                 <button className="btn btn-outline-primary" onClick={this.logIn} disabled={this.state.password.length==0||this.state.username.length==0}>Sign in</button>
                                 <Link to={"/PasswordReset"}><p><a>Lost your password?</a></p></Link>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>}
-            {this.state.showError &&
+            </div>
+            {this.state.showError&&
             <div> Wrong Password/Username Try Again</div>}
         </div>
-
-
     )
+
 }}
 export default SignIn;

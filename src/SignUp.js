@@ -90,7 +90,6 @@ class SignUp extends React.Component{
                         Please fill out the form below to create a new account.
                     </p>
                     <div className="form-white">
-                        <form role="form">
                             <div className="form-group">
                                 <label form="name">First Name</label>
                                 <input type="text" className="form-control" id="FirstName" placeholder="First name" value={this.state.firstName} onChange={this.firstNameChange}/>
@@ -123,7 +122,6 @@ class SignUp extends React.Component{
                                 <br></br>
                             <button className="btn btn-outline-primary" onClick={this.accountCreated}>Create an account</button>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

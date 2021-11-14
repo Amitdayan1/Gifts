@@ -178,7 +178,7 @@ class HomePage extends React.Component{
                 }
             </select>
             <br/>
-            <button id="convertButton" onClick={this.doConversion}>Change Prices</button>
+            <button id="convertButton" onClick={this.doConversion} className="btn btn-outline-primary">Change Prices</button>
             <div>Today's Value is : {this.state.result} </div>
             <div id="Search" >Search By Name: <input id="searchInput" value={this.state.nameFilter} onChange={this.inputChange} placeholder={"Search..."}/></div>
 

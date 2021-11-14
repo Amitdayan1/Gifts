@@ -1,5 +1,5 @@
 import * as React from "react";
-import {BrowserRouter, Link,NavLink} from "react-router-dom";
+import {BrowserRouter, Link, NavLink, Redirect} from "react-router-dom";
 import './App.css'
 import Cookies from "universal-cookie/lib";
 
@@ -7,28 +7,31 @@ import Cookies from "universal-cookie/lib";
 class Navigation extends React.Component{
     state={
         token:"1",
-        loggedIn:false
+        loggedIn:false,
+        signOutPressed:false
     }
     componentDidMount() {
-        {
             const cookies = new Cookies();
+            let loggedIn= cookies.get("logged_in")
             this.setState({
-                loggedIn: cookies.get("logged_in")
+                loggedIn:loggedIn
             })
-        }
     }
     logOut=()=>{
         const cookies = new Cookies();
         cookies.remove("logged_in");
         cookies.remove("token");
         cookies.remove("uniqId");
+        let loggedIn= cookies.get("logged_in")
         this.setState({
-            loggedIn: cookies.get("logged_in")
+            loggedIn: loggedIn,
+            signOutPressed:true
         })
         window.location.reload();
     }
     render()
-    {return(
+    {
+        return(
         <div>
             <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet"/>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -55,9 +58,11 @@ class Navigation extends React.Component{
                     <li className="nav-item"><button onClick={this.logOut} className="btn">Sign Out</button></li>}
                     <li className="nav-item"><NavLink to={"/SignUp"} activeClassName="links"><button className="btn">Sign Up</button></NavLink></li>
                 </ul>
-        </div>
+
+            </div>
         </nav>
         </div>
+
     );
     }
 }

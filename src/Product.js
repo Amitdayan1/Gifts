@@ -29,7 +29,6 @@ function Product (props) {
                         uniqId:props.data.uniqId
                     }
                 }).then(response=> {
-                    window.location.reload();
 
                 })
 
@@ -44,7 +43,6 @@ function Product (props) {
            }
            {props.data.selected&&
                             <div>
-                                <p>Price:{props.data.price}</p>
                         <button className="btn" onClick={()=> {
                             const cookies = new Cookies();
                             let token=cookies.get("token");
@@ -55,7 +53,7 @@ function Product (props) {
                                     uniqId:props.data.uniqId
                                 }
                             }).then(response=>{
-                                window.location.reload();
+
                             })
                         }} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
