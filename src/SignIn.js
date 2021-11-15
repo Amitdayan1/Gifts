@@ -33,14 +33,12 @@ class SignIn extends React.Component{
             }
         }).then((response)=>{
             if(response.data.length>0) {
-
                 const cookies = new Cookies();
                 cookies.set("logged_in", "True");
                 cookies.set("token", response.data);
                 this.setState({
                     loggedIn:true
                 })
-                console.log(response.data);
                 }
             else {
                 this.setState({
