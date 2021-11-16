@@ -117,7 +117,7 @@ class HomePage extends React.Component{
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
                   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
         <div>
-            <h2 className="Title" >Welcome To Best Gift {this.state.token !=1 ?this.state.username: ""}</h2>
+            <h2 className="Title" >Welcome To Best Gift {this.state.token!="" ?this.state.username:""}</h2>
     </div>
         <div className="row g-2 Sort">
             <select value={this.state.selectedCategory} onChange={this.categoryChange} className="form-select w-auto" aria-label="Default select example" >

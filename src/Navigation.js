@@ -27,7 +27,6 @@ class Navigation extends React.Component{
             loggedIn: loggedIn,
             signOutPressed:true
         })
-        window.location.reload();
     }
     render()
     {
