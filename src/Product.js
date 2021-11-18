@@ -23,7 +23,7 @@ function Product (props) {
                 const cookies = new Cookies();
                 let token=cookies.get("token");
                 cookies.set("product",props.data.uniqId);
-                axios.get("http://127.0.0.1:8988/set-user-cart",{
+                axios.get("http://127.0.0.1:8988/add-to-cart",{
                     params:{
                         token:token,
                         uniqId:props.data.uniqId

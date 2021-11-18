@@ -58,6 +58,7 @@ class Navigation extends React.Component{
                     </NavLink>
                 <ul className="nav justify-content-center">
                     <li className="nav-item"><NavLink to={"/About"} activeClassName="links"><button className="btn">About Us</button></NavLink></li>
+
                     {!this.state.loggedIn &&
                     <li className="nav-item"><NavLink to={"/SignIn"} activeClassName="links"><button className="btn">Sign in</button></NavLink></li>
                     }
@@ -70,6 +71,7 @@ class Navigation extends React.Component{
                         </svg></button></NavLink></li>}
                     {this.state.loggedIn &&
                     <li className="nav-item"><button onClick={this.logOut} className="btn">Sign Out</button></li>}
+
                     <li className="nav-item"><NavLink to={"/SignUp"} activeClassName="links"><button className="btn">Sign Up</button></NavLink></li>
                 </ul>
 
