@@ -4,6 +4,7 @@ import Product from "./Product";
 import moment from "moment";
 import axios from "axios";
 import Cookies from "universal-cookie/lib";
+import Navigation from "./Navigation";
 
 class HomePage extends React.Component{
     state = {
@@ -19,9 +20,7 @@ class HomePage extends React.Component{
         result:"",
         dateCreate: moment().format("YYYY-MM-DD"),
         nameFilter:"",
-        accessKey:"",
-        token:"",
-        username:""
+        accessKey:""
     }
 
     componentDidMount() {
@@ -34,22 +33,8 @@ class HomePage extends React.Component{
             .then(response=>{
                 const accessKey=response.data;
                 this.setState({accessKey:accessKey})
-            })
-        const cookies=new Cookies();
-        let tempToken=cookies.get("token")
-        {this.setState({
-            token:tempToken
-        })}
-        axios.get('http://127.0.0.1:8988/get-user',{
-            params:{
-                token:tempToken
-            }
-        }).then(response=>{
-            this.setState({
-                username:response.data.username
-            })
-        })
-    }
+            })}
+
 
     categoryChange = (event) => {
         const value = event.target.value;
@@ -113,11 +98,12 @@ class HomePage extends React.Component{
     render()
     {
         return(
+            <div>
         <div className="HomeAll">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
                   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
         <div>
-            <h2 className="Title" >Welcome To Best Gift {this.state.token!="" ?this.state.username:""}</h2>
+            <h2 className="Title" >Welcome To Best Gift</h2>
     </div>
         <div className="row g-2 Sort">
             <select value={this.state.selectedCategory} onChange={this.categoryChange} className="form-select w-auto" aria-label="Default select example" >
@@ -193,6 +179,7 @@ class HomePage extends React.Component{
         </div>
         <div style={{textAlign:"right",fontSize:"8px"}} >(The prices are shown in {this.state.currentCurrency} currency)</div>
     </div>
+            </div>
 
     ) }
 

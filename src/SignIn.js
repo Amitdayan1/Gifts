@@ -4,6 +4,7 @@ import './App.css'
 import axios from "axios";
 import Cookies from "universal-cookie/lib";
 import HomePage from "./HomePage";
+import Navigation from "./Navigation";
 
 class SignIn extends React.Component{
     state = {
@@ -11,7 +12,8 @@ class SignIn extends React.Component{
         password: "",
         token:"",
         showError: false,
-        loggedIn:false
+        loggedIn:false,
+
 }
     userNameChange=(event)=> {
         let value = event.target.value;
@@ -34,9 +36,9 @@ class SignIn extends React.Component{
         }).then((response)=>{
             if(response.data.length>0) {
                 const cookies = new Cookies();
-                cookies.set("logged_in", "True");
+                cookies.set("logged_in", "true");
                 cookies.set("token", response.data);
-                this.setState({
+                 this.setState({
                     loggedIn:true
                 })
                 }
@@ -46,12 +48,12 @@ class SignIn extends React.Component{
                         })
                     }
                 })
+            return this.state.loggedIn;
             }
 
     render() {
-            const {loggedIn}=this.state
-                if(loggedIn)
-                return(<Redirect to={"/HomePage"}/>)
+                if(this.state.loggedIn)
+                    return(<Redirect to={"/HomePage"}/>)
            return(
         <div className="SignInAll">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"

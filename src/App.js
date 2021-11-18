@@ -14,14 +14,6 @@ import FooterBar from "./FooterBar";
 import Cookies from "universal-cookie/lib";
 
 class App extends React.Component {
-
-    componentDidMount() {
-        let cookies=new Cookies();
-        cookies.get("token");
-        cookies.get("logged_in");
-
-        }
-
     render(){
         return (
             <div>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./App.css"
 import axios from "axios";
-import Cookies from "universal-cookie";
+import {Redirect} from "react-router-dom";
 
 
 class SignUp extends React.Component{
@@ -12,7 +12,8 @@ class SignUp extends React.Component{
         emailAddress:"",
         password1:"",
         password2:"",
-        success:false
+        success:false,
+        created:false
     }
     firstNameChange=(event)=>{
         let value =event.target.value;
@@ -75,11 +76,17 @@ class SignUp extends React.Component{
             } })
             .then((response)=>{
             if (response.data){
+                this.setState({
+                    created:true
+                })
                 alert("user created")}
         }
             )}
 
     render() {
+        const {created}=this.state
+        if(created)
+            return(<Redirect to={"/SignIn"}/>)
         return (
             <div className="SignUpAll">
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"

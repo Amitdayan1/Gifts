@@ -2,32 +2,47 @@ import * as React from "react";
 import {BrowserRouter, Link, NavLink, Redirect} from "react-router-dom";
 import './App.css'
 import Cookies from "universal-cookie/lib";
-
+import axios from "axios";
 
 class Navigation extends React.Component{
     state={
-        token:"1",
         loggedIn:false,
         signOutPressed:false
     }
     componentDidMount() {
-            const cookies = new Cookies();
-            let loggedIn= cookies.get("logged_in")
-            this.setState({
-                loggedIn:loggedIn
-            })
-    }
-    logOut=()=>{
         const cookies = new Cookies();
-        cookies.remove("logged_in");
-        cookies.remove("token");
-        cookies.remove("uniqId");
-        let loggedIn= cookies.get("logged_in")
-        this.setState({
-            loggedIn: loggedIn,
-            signOutPressed:true
+            let token= cookies.get("token")
+        axios.get("http://127.0.0.1:8988/user-log-in",{
+            params:{
+                token:token}})
+        .then(response=>{
+            console.log(response.data);
+            if(response.data==1){
+                this.setState({
+                    loggedIn:true})
+            }
         })
     }
+
+
+    logOut=()=> {
+        let cookies = new Cookies();
+        let token = cookies.get("token")
+        axios.get("http://127.0.0.1:8988/user-log-out", {
+            params: {
+                token: token
+            }
+        }).then(response => {
+            cookies.remove("logged_in");
+            cookies.remove("token");
+            cookies.remove("uniqId");
+            this.setState({
+                loggedIn: false,
+                signOutPressed: true
+            })
+        })
+    }
+
     render()
     {
         return(
