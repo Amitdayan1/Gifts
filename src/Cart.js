@@ -11,6 +11,21 @@ class Cart extends React.Component {
         username:""
     }
     componentDidMount() {
+        this.getUserCart();
+        const cookies = new Cookies();
+        let token = cookies.get("token");
+        axios.get("http://127.0.0.1:8988/get-user", {
+            params: {
+                token: token
+            }
+        }).then(response => {
+            let username = response.data.firstName;
+            this.setState({
+                username: username
+            })
+        })
+    }
+        getUserCart=()=>{
         const cookies = new Cookies();
         let token = cookies.get("token");
         axios.get("http://127.0.0.1:8988/get-user-cart", {
@@ -21,16 +36,6 @@ class Cart extends React.Component {
             let tempList = response.data;
             this.setState({
                 cartList: tempList
-            })
-        })
-        axios.get("http://127.0.0.1:8988/get-user", {
-            params: {
-                token: token
-            }
-        }).then(response => {
-            let username = response.data.firstName;
-            this.setState({
-                username:username
             })
         })
     }
