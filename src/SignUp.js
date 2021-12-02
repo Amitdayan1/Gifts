@@ -52,23 +52,38 @@ class SignUp extends React.Component{
             password2:value
         })
     }
-    fieldsCheck=()=>{
-        if(this.state.password1.length>0 && this.state.password1==this.state.password2 &&
-            this.state.firstName.length>0&&this.state.lastName.length>0&&
-            this.state.username.length>0&&this.state.emailAddress.length>0)
-            this.setState({
-                success:true
-            })
-        else {
-            alert("One or more details are wrong")
+    fieldsCheck=()=> {
+        const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+        const regex1 = /^(?=.*[A-Za-z])[A-Za-z]{1+}$/;
+        const regex2 = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        if (!regex.test(this.state.password1)) {
+            alert("Invalid password");
+        }
+        {
+            if (!regex1.test(this.state.firstName) || !regex1.test(this.state.lastName) || !regex1.test(this.state.username)) {
+                alert("Invalid one or more fields");
+            }
+            {
+                if (!regex2.test(this.state.emailAddress)) {
+                    alert("Invalid email address");
+                }
+                if (regex.test(this.state.password1) && regex.test(this.state.password2) && regex1.test(this.state.firstName) && regex1.test(this.state.lastName) && regex1.test(this.state.username) && regex2.test(this.state.emailAddress)) {
+                    console.log(this.state.success)
+                    this.setState({
+                        success: true
+                    })
+                    console.log(this.state.success)
+                }
+            }
         }
     }
+
     accountCreated=()=>{
         this.fieldsCheck();
         if(this.state.success){
         }
         axios.get("http://127.0.0.1:8988/sign-up",{
-            params: {
+            params:{
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 username: this.state.username,
@@ -85,11 +100,9 @@ class SignUp extends React.Component{
             )}
 
     render() {
-        const {created}=this.state
-        if(created)
+        if(this.state.created)
             return(<Redirect to={"/SignIn"}/>)
         return (
-
             <div className="SignUpAll">
                 <Navigation/>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
